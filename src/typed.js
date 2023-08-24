@@ -115,6 +115,18 @@ export default class Typed {
       if (this.cursor) this.cursor.classList.remove(this.fadeOutClass);
     }
 
+    {
+      let substr = curString.substring(curStrPos);
+      if (substr.charAt(0) === '|') {
+        let skip = 1;
+        substr = /\d+/.exec(substr)[0];
+        skip += substr.length;
+        this.typeSpeed = parseInt(substr);
+        curString =
+          curString.substring(0, curStrPos) +
+          curString.substring(curStrPos + skip);
+      }
+    }
     const humanize = this.humanizer(this.typeSpeed);
     let numChars = 1;
 

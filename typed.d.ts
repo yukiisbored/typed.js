@@ -50,6 +50,7 @@ export default class Typed {
      * @private
      */
     private typewrite;
+    typeSpeed: number;
     temporaryPause: boolean;
     /**
      * Continue to the next string & begin typing
